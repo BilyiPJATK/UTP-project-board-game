@@ -9,4 +9,5 @@ include_directories(${JAVA_HOME}/include/win32)
 
 
 add_library(UTP_project_board_game_ SHARED library.cpp
-        Main.h)
+        Main.h
+        ArraySumExample.h)
