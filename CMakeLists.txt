@@ -9,5 +9,6 @@ include_directories(${JAVA_HOME}/include/win32)
 
 
 add_library(UTP_project_board_game_ SHARED library.cpp
-        Main.h
-        ArraySumExample.h)
+        GoBoard.h
+)
+target_link_options(UTP_project_board_game_ PRIVATE "-static")

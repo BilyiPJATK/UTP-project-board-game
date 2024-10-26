@@ -67,6 +67,7 @@ build CMakeFiles/UTP_project_board_game_.dir/library.cpp.obj: CXX_COMPILER__UTP_
 
 build libUTP_project_board_game_.dll libUTP_project_board_game_.dll.a: CXX_SHARED_LIBRARY_LINKER__UTP_project_board_game__Debug CMakeFiles/UTP_project_board_game_.dir/library.cpp.obj
   LANGUAGE_COMPILE_FLAGS = -g
+  LINK_FLAGS = -static
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\UTP_project_board_game_.dir
   POST_BUILD = cd .

@@ -21,20 +21,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d04d281c-8974-4118-804e-32d563b9afd1" name="Changes" comment="connection to java">
-      <change afterPath="$PROJECT_DIR$/ArraySumExample.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GoBoard.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArraySumExample.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ed4173dfea0d2af1f1c1.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-10-25T14-07-39-0222.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-UTP_project_board_game_-Debug-72efa5bff95af8e69d11.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.h" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UTP_project_board_game_.dir/library.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/UTP_project_board_game_.dir/library.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll.a" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/library.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/library.h" beforeDir="false" afterPath="$PROJECT_DIR$/library.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +83,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\1\CLionProjects\UTP project board game" />
+      <recent name="C:\Users\1\CLionProjects\UTP project board game\src" />
     </key>
   </component>
   <component name="RunManager">
@@ -106,7 +108,7 @@
       <updated>1729689170801</updated>
       <workItem from="1729689172154" duration="1258000" />
       <workItem from="1729864196434" duration="119000" />
-      <workItem from="1729864317613" duration="4602000" />
+      <workItem from="1729864317613" duration="26652000" />
     </task>
     <task id="LOCAL-00001" summary="connection to java">
       <option name="closed" value="true" />
@@ -116,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729867726877</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="connection to java">
+      <option name="closed" value="true" />
+      <created>1729869328796</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729869328796</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
