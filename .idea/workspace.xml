@@ -23,8 +23,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d04d281c-8974-4118-804e-32d563b9afd1" name="Changes" comment="created game">
+    <list default="true" id="d04d281c-8974-4118-804e-32d563b9afd1" name="Changes" comment="fixed problem in calculating score">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/libUTP_project_board_game_.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/library.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/library.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +85,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -94,7 +102,7 @@
       <workItem from="1729689172154" duration="1258000" />
       <workItem from="1729864196434" duration="119000" />
       <workItem from="1729864317613" duration="28271000" />
-      <workItem from="1730136761229" duration="1861000" />
+      <workItem from="1730136761229" duration="2192000" />
     </task>
     <task id="LOCAL-00001" summary="connection to java">
       <option name="closed" value="true" />
@@ -120,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729959168957</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fixed problem in calculating score">
+      <option name="closed" value="true" />
+      <created>1730140148242</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730140148242</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +150,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="connection to java" />
     <MESSAGE value="created game" />
-    <option name="LAST_COMMIT_MESSAGE" value="created game" />
+    <MESSAGE value="fixed problem in calculating score" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed problem in calculating score" />
   </component>
 </project>
