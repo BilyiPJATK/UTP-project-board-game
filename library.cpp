@@ -7,7 +7,7 @@
 
 class GoBoard {
 public:
-    static const int BOARD_SIZE = 19;
+    static const int BOARD_SIZE = 9;
     int board[BOARD_SIZE][BOARD_SIZE] = {0};
     bool blackTurn = true;
     int capturedWhite = 0;
@@ -161,7 +161,7 @@ public:
                 capturesNum++;
             }
         }
-        color == 1 ? capturedBlack += capturesNum : capturedWhite += capturesNum;
+        color == 2 ? capturedBlack += capturesNum : capturedWhite += capturesNum;
         return capturesNum;
     }
 
@@ -262,34 +262,34 @@ public:
 // JNI methods
 extern "C" {
 JNIEXPORT jlong JNICALL Java_GoBoard_nativeInit(JNIEnv *env, jobject obj) {
-    GoBoard* board = new GoBoard();
-    return reinterpret_cast<jlong>(board); // Return pointer as jlong
+    auto* board = new GoBoard();
+    return reinterpret_cast<jlong>(board); // Return pointer as jLong
 }
 
 JNIEXPORT void JNICALL Java_GoBoard_nativePlaceStone(JNIEnv *env, jobject obj, jlong boardPtr, jint x, jint y) {
-    GoBoard* board = reinterpret_cast<GoBoard*>(boardPtr);
+    auto* board = reinterpret_cast<GoBoard*>(boardPtr);
     board->placeStone(x, y);
 }
 
 JNIEXPORT jint JNICALL Java_GoBoard_nativeGetStone(JNIEnv *env, jobject obj, jlong boardPtr, jint x, jint y) {
-    GoBoard* board = reinterpret_cast<GoBoard*>(boardPtr);
+    auto* board = reinterpret_cast<GoBoard*>(boardPtr);
     return board->getStone(x, y);
 }
 
 JNIEXPORT void JNICALL Java_GoBoard_nativeFree(JNIEnv *env, jobject obj, jlong boardPtr) {
-    GoBoard* board = reinterpret_cast<GoBoard*>(boardPtr);
+    auto* board = reinterpret_cast<GoBoard*>(boardPtr);
     delete board; // Free memory
 }
 JNIEXPORT void JNICALL Java_GoBoard_nativeCheckCaptures(JNIEnv *env, jobject obj, jlong boardPtr, jint x, jint y) {
-    GoBoard* board = reinterpret_cast<GoBoard*>(boardPtr);
+    auto* board = reinterpret_cast<GoBoard*>(boardPtr);
     board->checkCaptures(x, y); // Call the checkCaptures method
 }
 JNIEXPORT void JNICALL Java_GoBoard_nativePass(JNIEnv *env, jobject obj, jlong boardPtr) {
-    GoBoard* board = reinterpret_cast<GoBoard*>(boardPtr);
+    auto* board = reinterpret_cast<GoBoard*>(boardPtr);
     board->pass(); // Call the pass method
 }
 JNIEXPORT jlong JNICALL Java_GoBoard_nativeEndGame(JNIEnv *env, jobject obj, jlong boardPtr) {
-    GoBoard* board = reinterpret_cast<GoBoard*>(boardPtr);
+    auto* board = reinterpret_cast<GoBoard*>(boardPtr);
 
     int blackScore = 0;
     int whiteScore = 0;
@@ -299,7 +299,7 @@ JNIEXPORT jlong JNICALL Java_GoBoard_nativeEndGame(JNIEnv *env, jobject obj, jlo
     return (static_cast<jlong>(blackScore) << 32) | static_cast<jlong>(whiteScore); // Return as a long
 }
 JNIEXPORT jboolean JNICALL Java_GoBoard_nativeIsGameOngoing(JNIEnv *env, jobject obj, jlong boardPtr) {
-    GoBoard *board = reinterpret_cast<GoBoard *>(boardPtr);
+    auto *board = reinterpret_cast<GoBoard *>(boardPtr);
     return board->isGameOngoing();
 }
 } // extern "C"
