@@ -16,10 +16,9 @@ public:
     bool gameState = true;
 
     GoBoard() {
-        // Initialize the board to empty
         for (int i = 0; i < BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
-                board[i][j] = 0; // Set all cells to empty
+                board[i][j] = 0;
             }
         }
     }
@@ -28,12 +27,10 @@ public:
         if (x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE && board[x][y] == 0) {
             int color = blackTurn ? 1 : 2;
 
-            // If all adjacent stones are opponent's stones, then the stone is surrounded
             if (!isSurrounded(x,y)) {
-                // Place the stone if it's a legal move
-                board[x][y] = color; // Place black (1) or white (2) stone
-                checkCaptures(x, y); // Check for captures after placing the stone
-                blackTurn = !blackTurn; // Switch turns
+                board[x][y] = color;
+                checkCaptures(x, y);
+                blackTurn = !blackTurn;
             }
 
             if (
@@ -57,18 +54,18 @@ public:
 
     int getStone(int x, int y) {
         if (x >= 0 && x < BOARD_SIZE && y >= 0 && y < BOARD_SIZE) {
-            return board[x][y]; // Return the value of the cell
+            return board[x][y];
         }
         return -1; // Invalid position
     }
 
     bool isSurrounded(int x, int y) {
-        int color = blackTurn ? 1 : 2; // Determine the current player's color
+        int color = blackTurn ? 1 : 2;
 
         // Check if the position (x, y) is surrounded by the opponent's stones
         for (int dx = -1; dx <= 1; dx++) {
             for (int dy = -1; dy <= 1; dy++) {
-                if (abs(dx) + abs(dy) == 1) { // Only check directly adjacent cells
+                if (abs(dx) + abs(dy) == 1) {
                     int nx = x + dx;
                     int ny = y + dy;
                     if (nx >= 0 && ny >= 0 && nx < BOARD_SIZE && ny < BOARD_SIZE) {
@@ -83,30 +80,26 @@ public:
             }
         }
 
-        // If all adjacent positions are occupied by the opponent's stones
-        return true; // The stone is surrounded
+        return true;
     }
 
     int checkCaptures(int x, int y) {
-        int color = board[x][y]; // Get the color of the newly placed stone
+        int color = board[x][y];
         std::vector<std::pair<int, int>> captured;
         std::set<std::pair<int, int>> visited;
         int capturesNum = 0;
 
-        // Function to perform Depth-First Search
         std::function<void(int, int)> dfs = [&](int cx, int cy) {
-            // Check bounds
             if (cx < 0 || cy < 0 || cx >= BOARD_SIZE || cy >= BOARD_SIZE || visited.count({cx, cy})) {
                 return;
             }
             visited.insert({cx, cy});
 
-            if (board[cx][cy] == 0) { // Found an empty space
-                return; // This group is not surrounded
+            if (board[cx][cy] == 0) {
+                return;
             }
-            if (board[cx][cy] != color) { // Found an opposite color stone
-                captured.push_back({cx, cy}); // Track the captured stone
-                // Continue DFS to adjacent stones
+            if (board[cx][cy] != color) {
+                captured.push_back({cx, cy});
                 dfs(cx - 1, cy); // Up
                 dfs(cx + 1, cy); // Down
                 dfs(cx, cy - 1); // Left
@@ -114,15 +107,13 @@ public:
             }
         };
 
-        // Check adjacent cells
         for (int dx = -1; dx <= 1; dx++) {
             for (int dy = -1; dy <= 1; dy++) {
-                if (abs(dx) + abs(dy) == 1) { // Only check adjacent cells
+                if (abs(dx) + abs(dy) == 1) {
                     int nx = x + dx;
                     int ny = y + dy;
                     if (nx >= 0 && ny >= 0 && nx < BOARD_SIZE && ny < BOARD_SIZE) {
                         if (board[nx][ny] != color && board[nx][ny] != 0) {
-                            // If we found a stone of the opposite color, we start DFS from it
                             dfs(nx, ny);
                         }
                     }
@@ -130,16 +121,14 @@ public:
             }
         }
 
-        // After DFS, check if the captured group is surrounded
         bool surrounded = true;
         for (const auto &pos : captured) {
             int cx = pos.first;
             int cy = pos.second;
 
-            // Check if this stone is adjacent to an empty space
             for (int dx = -1; dx <= 1; dx++) {
                 for (int dy = -1; dy <= 1; dy++) {
-                    if (abs(dx) + abs(dy) == 1) { // Only check adjacent cells
+                    if (abs(dx) + abs(dy) == 1) {
                         int adjX = cx + dx;
                         int adjY = cy + dy;
                         if (adjX >= 0 && adjY >= 0 && adjX < BOARD_SIZE && adjY < BOARD_SIZE) {
@@ -154,10 +143,9 @@ public:
             }
         }
 
-        // If the group is surrounded, remove the captured stones
         if (surrounded) {
             for (auto &pos : captured) {
-                board[pos.first][pos.second] = 0; // Remove captured stones
+                board[pos.first][pos.second] = 0;
                 capturesNum++;
             }
         }
@@ -180,9 +168,7 @@ public:
         int whiteTerritory = 0;
         bool visited[BOARD_SIZE][BOARD_SIZE] = {false};
 
-        // Helper function for flood-fill (DFS)
         std::function<void(int, int, int&, int&)> dfs = [&](int x, int y, int& blackBoundary, int& whiteBoundary) {
-            // Use a stack for DFS to avoid recursion depth issues
             std::vector<std::pair<int, int>> stack;
             stack.push_back({x, y});
             visited[x][y] = true;
@@ -198,7 +184,7 @@ public:
 
                 for (int dx = -1; dx <= 1; dx++) {
                     for (int dy = -1; dy <= 1; dy++) {
-                        if (abs(dx) + abs(dy) == 1) { // Only check adjacent cells
+                        if (abs(dx) + abs(dy) == 1) {
                             int nx = cx + dx;
                             int ny = cy + dy;
 
@@ -219,17 +205,14 @@ public:
                 }
             }
 
-            // If the group of empty points is surrounded only by black, add to black's territory
             if (isSurroundedByBlack && !isSurroundedByWhite) {
                 blackBoundary += territorySize;
             }
-                // If the group of empty points is surrounded only by white, add to white's territory
             else if (isSurroundedByWhite && !isSurroundedByBlack) {
                 whiteBoundary += territorySize;
             }
         };
 
-        // Iterate through the board to find empty regions
         for (int i = 0; i < BOARD_SIZE; ++i) {
             for (int j = 0; j < BOARD_SIZE; ++j) {
                 if (board[i][j] == 0 && !visited[i][j]) {
@@ -238,7 +221,6 @@ public:
             }
         }
 
-        // Calculate the final scores
         int finalBlackScore = blackTerritory + capturedWhite;
         int finalWhiteScore = whiteTerritory + capturedBlack;
 
@@ -253,7 +235,7 @@ public:
         }
     }
     bool isGameOngoing() {
-        return gameState; // Return the current game state
+        return gameState;
     }
 
 };
@@ -263,7 +245,7 @@ public:
 extern "C" {
 JNIEXPORT jlong JNICALL Java_GoBoard_nativeInit(JNIEnv *env, jobject obj) {
     auto* board = new GoBoard();
-    return reinterpret_cast<jlong>(board); // Return pointer as jLong
+    return reinterpret_cast<jlong>(board);
 }
 
 JNIEXPORT void JNICALL Java_GoBoard_nativePlaceStone(JNIEnv *env, jobject obj, jlong boardPtr, jint x, jint y) {
@@ -282,11 +264,11 @@ JNIEXPORT void JNICALL Java_GoBoard_nativeFree(JNIEnv *env, jobject obj, jlong b
 }
 JNIEXPORT void JNICALL Java_GoBoard_nativeCheckCaptures(JNIEnv *env, jobject obj, jlong boardPtr, jint x, jint y) {
     auto* board = reinterpret_cast<GoBoard*>(boardPtr);
-    board->checkCaptures(x, y); // Call the checkCaptures method
+    board->checkCaptures(x, y);
 }
 JNIEXPORT void JNICALL Java_GoBoard_nativePass(JNIEnv *env, jobject obj, jlong boardPtr) {
     auto* board = reinterpret_cast<GoBoard*>(boardPtr);
-    board->pass(); // Call the pass method
+    board->pass();
 }
 JNIEXPORT jlong JNICALL Java_GoBoard_nativeEndGame(JNIEnv *env, jobject obj, jlong boardPtr) {
     auto* board = reinterpret_cast<GoBoard*>(boardPtr);
@@ -294,7 +276,7 @@ JNIEXPORT jlong JNICALL Java_GoBoard_nativeEndGame(JNIEnv *env, jobject obj, jlo
     int blackScore = 0;
     int whiteScore = 0;
 
-    board->endGame(blackScore, whiteScore); // Calculate scores
+    board->endGame(blackScore, whiteScore);
 
     return (static_cast<jlong>(blackScore) << 32) | static_cast<jlong>(whiteScore); // Return as a long
 }
